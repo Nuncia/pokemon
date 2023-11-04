@@ -1,0 +1,14 @@
+body{
+    font-family: 'Comfortaa', sans-serif;
+    font-family: 'Pacifico', cursive;
+    font-family: 'Roboto', sans-serif;
+    margin: 0px;
+    padding: 100px;
+    color: black;
+}
+.active{
+    color: red;
+}
+.pikachu{
+    background-image: url(../src/assets/580b57fcd9996e24bc43c325.png);
+}
