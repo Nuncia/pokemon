@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-    const setActive = ({isActive}) => (isActive ? 'active' : undefined);
+    const setActive = ({isActive}) => (isActive ? 'active' : 'inActive');
   return (
-    <div style={{textAlign: 'end', backgroundColor: 'grey', color: 'white'}}>
+    <div className="navBar">
         <NavLink className={setActive} to='/'>
         Home
     </NavLink>

@@ -10,8 +10,6 @@ export const PokeProvider = ({children}) => {
 
     const respuesta = await fetch(endPoint);
     const datos = await respuesta.json();
-
-    console.log(datos.results)
     setPokemones(datos.results)
    })
 

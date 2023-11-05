@@ -3,12 +3,44 @@ body{
     font-family: 'Pacifico', cursive;
     font-family: 'Roboto', sans-serif;
     margin: 0px;
-    padding: 100px;
+    padding: 0px;
     color: black;
+    box-sizing: border-box;
+}
+.navBar{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: end;
+    background-color: grey;
+    color: white;
+    text-decoration: none;
+    height: 50px;
+    color: white;
+    padding-right: 49px;
+    font-weight: 700;
 }
 .active{
     color: red;
+    text-decoration: none;
 }
 .pikachu{
-    background-image: url(../src/assets/580b57fcd9996e24bc43c325.png);
+    width: 187vh;
+    height: 58vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    margin: 64px;
+}
+.select__class{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.form-select{
+    width: 30%;
 }
