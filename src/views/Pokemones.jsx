@@ -1,27 +1,17 @@
-import { useCallback, useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { PokeContext } from "../context/PokeContext"
+import { useNavigate } from "react-router-dom";
+import Pokemon from "../components/Pokemon";
 
 const Pokemones = () => {
     const [cargando, setCargando] = useState(true);
     const [pokemon, setPokemon] = useState('');
     const {pokemones, obtenerPokemones} = useContext(PokeContext);
-    const [stats, setStats] = useState([]);
+    const navigate  = useNavigate();
 
-    const buscarPokemon = useCallback (async () => {
-        const valorSelect = document.getElementById('select');
-        const respuesta = await fetch(valorSelect.value);
-        const dato = await respuesta.json();
-        setStats(dato.stats);
-        console.log(stats)
-        console.log(dato.stats);
-        const pokeDato = { 
-            nombre: dato.name,
-            stats: dato.stats,
-            imagen: dato.sprites.back_default
-        }
-        setPokemon(pokeDato)
-        console.log(pokemon)
-    })
+    const mostrarPokemon = () => {
+        navigate(`/pokemon/${pokemon}`);
+    };
 
     useEffect(() => {
         if (pokemones.length == 0) {
@@ -33,28 +23,22 @@ const Pokemones = () => {
     }, [])
 
   return (
-    <div className="select__class"> 
-        <h1 style={{textAlign: 'center'}}>Selecciona un pokemon</h1>
-        {cargando ? ('Cargando...') : 
-            pokemones.length > 0 ? 
-               <select id='select' className="form-select form-select-xsm" aria-label="Default select example" name="pokemos">
-                     <option selected >Selecciona tu pokemón</option>
-                     {pokemones?.map((pokemon) => (       
-                        <option key={pokemon.name} value={pokemon.url}>{pokemon.name}</option>
-                    ))}
-               </select> : 'Cargando...'
-            } 
-            <br />
-            <button onClick={buscarPokemon} className="btn btn-dark">Buscar</button>
-        
-            {<div className="card" style={{width: "18rem"}}>
-            <img src={pokemon.imagen} className="card-img-top" alt="..."/>
-            <div className="card-body">
-              <h5 className="card-title">{pokemon.name}</h5>
-              
-            </div>
-          </div>}
-          
+    <div>
+            <div className="select__class"> 
+            <h1 style={{textAlign: 'center'}}>Selecciona un pokemon</h1>
+            {cargando ? ('Cargando...') : 
+                pokemones.length > 0 ? 
+                (<div>
+                    <select id='select' defaultValue={pokemon} onChange={(e) => setPokemon(e.target.value)} className="form-select form-select-xsm" aria-label="Default select example" name="pokemos">
+                        <option selected >Selecciona tu pokemón</option>
+                        {pokemones?.map((pokemon) => (       
+                            <option key={pokemon.name} value={pokemon.name}>{pokemon.name}</option>
+                        ))}
+                </select> 
+                <button onClick={mostrarPokemon}>Buscar</button>
+                </div>) : ('Cargando...')
+            }                  
+        </div>
     </div>
   )
 }

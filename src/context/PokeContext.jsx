@@ -3,9 +3,9 @@ import { createContext, useCallback, useEffect, useState } from "react";
 export const PokeContext = createContext();
 
 export const PokeProvider = ({children}) => {
-   const [pokemones, setPokemones] = useState([]);
+    const [pokemones, setPokemones] = useState([]);
 
-   const obtenerPokemones = useCallback ( async() => {
+    const obtenerPokemones = useCallback ( async() => {
     const endPoint = 'https://pokeapi.co/api/v2/pokemon';
 
     const respuesta = await fetch(endPoint);
