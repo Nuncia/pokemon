@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { PokeContext } from "../context/PokeContext"
 import { useNavigate } from "react-router-dom";
-import Pokemon from "../components/Pokemon";
 
 const Pokemones = () => {
     const [cargando, setCargando] = useState(true);
@@ -10,7 +9,7 @@ const Pokemones = () => {
     const navigate  = useNavigate();
 
     const mostrarPokemon = () => {
-        navigate(`/pokemon/${pokemon}`);
+        navigate(`/pokemones/${pokemon}`);
     };
 
     useEffect(() => {
@@ -24,18 +23,18 @@ const Pokemones = () => {
 
   return (
     <div>
-            <div className="select__class"> 
-            <h1 style={{textAlign: 'center'}}>Selecciona un pokemon</h1>
+        <div className="select__class"> 
+            <h1 style={{textAlign: 'center'}}>Selecciona un pokémon</h1>
             {cargando ? ('Cargando...') : 
                 pokemones.length > 0 ? 
-                (<div>
-                    <select id='select' defaultValue={pokemon} onChange={(e) => setPokemon(e.target.value)} className="form-select form-select-xsm" aria-label="Default select example" name="pokemos">
-                        <option selected >Selecciona tu pokemón</option>
+                (<div className="select__dos">
+                    <select id='select' defaultValue={pokemon} onChange={(e) => setPokemon(e.target.value)} className="form-select" aria-label="Default select example" name="pokemos">
+                        <option selected >Selecciona tu pokémon</option>
                         {pokemones?.map((pokemon) => (       
                             <option key={pokemon.name} value={pokemon.name}>{pokemon.name}</option>
                         ))}
                 </select> 
-                <button onClick={mostrarPokemon}>Buscar</button>
+                <button className="btn btn-danger" style={{marginTop: '10px'}} onClick={mostrarPokemon}>Buscar</button>
                 </div>) : ('Cargando...')
             }                  
         </div>

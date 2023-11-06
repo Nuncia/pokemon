@@ -16,7 +16,7 @@ function App() {
           <Routes>
               <Route  path='/' element={<Home/>}/>
               <Route path='/pokemones' element={<Pokemones/>}/>
-              <Route path='/pokemon/:name' element={<Pokemon/>}/>
+              <Route path='/pokemones/:name' element={<Pokemon/>}/>
           </Routes>
         </BrowserRouter>
       </PokeProvider>
