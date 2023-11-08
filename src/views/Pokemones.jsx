@@ -29,12 +29,12 @@ const Pokemones = () => {
                 pokemones.length > 0 ? 
                 (<div className="select__dos">
                     <select id='select' defaultValue={pokemon} onChange={(e) => setPokemon(e.target.value)} className="form-select" aria-label="Default select example" name="pokemos">
-                        <option selected >Selecciona tu pokémon</option>
+                        <option disabled selected >Selecciona tu pokémon</option>
                         {pokemones?.map((pokemon) => (       
                             <option key={pokemon.name} value={pokemon.name}>{pokemon.name}</option>
                         ))}
                 </select> 
-                <button className="btn btn-danger" style={{marginTop: '10px'}} onClick={mostrarPokemon}>Buscar</button>
+                <button className="btn btn-danger" style={{marginTop: '10px'}} onClick={mostrarPokemon}>Ver detalle</button>
                 </div>) : ('Cargando...')
             }                  
         </div>
