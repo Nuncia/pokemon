@@ -57,6 +57,7 @@ h1{
     display: flex;
     flex-direction: row;
     border-radius: 37px
+    
 }
 .pokemon__uno{
     margin-top: 40px;
@@ -117,4 +118,9 @@ h1{
     font-size: medium;
     color: rgb(108, 149, 235);
 
+}
+.boton{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
