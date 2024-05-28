@@ -46,7 +46,7 @@ const Pokemon = () => {
                      <img
                         // src={pokemon.sprites}
                         style={{ width: '250px' }}
-                        src={pokemon.sprites.back_default}
+                        src={pokemon.sprites}
                         className="card-img-top pokemon__dos"
                         alt={pokemon.name}
                      />
