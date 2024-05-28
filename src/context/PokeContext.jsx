@@ -20,6 +20,7 @@ export const PokeProvider = ({ children }) => {
       const endPonit = `https://pokeapi.co/api/v2/pokemon/${name}`;
       const respuesta = await fetch(endPonit);
       const datos = await respuesta.json();
+      console.log(datos);
       setPokemon(datos);
       console.log('pokemon: ', pokemon);
    });
