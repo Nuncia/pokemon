@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import Bola from '../assets/pokemon.png';
 
 const NavBar = () => {
    const setActive = ({ isActive }) => (isActive ? 'active' : 'inActive');
    return (
       <div className="navBar">
          <img
-            src="../src/assets/pokemon-icon.png"
+            src={Bola}
             style={{ width: '2.3%', paddingLeft: '6px', marginLeft: '10px' }}
             alt=""
          />
